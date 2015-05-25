@@ -1,0 +1,107 @@
+@(lists: List[Company], userForm: Form[UserForm], companyForm: Form[Company], sessionForm: Form[SessionForm])
+
+@import helper._
+@import play.i18n._
+
+
+@main("Todo list") {
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>arbor.js project template</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+	</head>
+    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/arbor.js")"></script>
+    <script src="@routes.Assets.at("javascripts/main.js")"></script>
+    <canvas id="viewport" width="800" height="600"></canvas>
+    <h1>@Messages.get("home.title")</h1>
+    <h1>@lists.size() task(s)</h1>
+    
+    <ul>
+        @for(list <- lists) {
+            <li>
+                @list.name
+                @list.id
+                @list.company_id
+                @for(session <- list.sessions) {
+                 <li>
+                @session.name
+                @for(user <- session.users) {
+                  </br>
+                  @user.user_name + @user.session.name + @user.session.company.name
+                }
+                </li>
+                }
+                
+                @form(routes.Application.deleteList(list.id)) {
+                    <input type="submit" value="Delete">
+                }
+            </li>
+        }
+    </ul>
+    
+    <h2>Add a new user</h2>
+    
+    @form(routes.Application.newUser()) {
+        
+        @inputText(
+          userForm("user_name"),
+          '_label -> "input user name",
+          '_showConstraints -> false
+          )
+        @select(
+           userForm("session_id"),
+           Session.all().map(s => s.id.toString -> s.name.toString),
+           '_label -> "chose session",
+           '_default -> "-- Choose a session --",
+           '_showConstraints -> false,
+           '_error -> "Force an error",
+           '_showErrors -> false
+        )
+        
+        <input type="submit" value="Create">
+        
+    }
+    
+    <h2>Add a new company</h2>
+    
+    @form(routes.Application.newCompany()) {
+        
+        @inputText(
+          companyForm("name"),
+          '_label -> "input company name",
+          '_showConstraints -> false
+          )
+          
+        @inputText(
+          companyForm("company_id"),
+          '_label -> "input company id",
+          '_showConstraints -> false
+          )
+        <input type="submit" value="Create">
+        
+    }
+    
+    <h2>Add a new session</h2>
+    
+    @form(routes.Application.newSession()) {
+        
+        @inputText(
+          companyForm("name"),
+          '_label -> "input session name",
+          '_showConstraints -> false
+          )
+        @select(
+           userForm("company_id"),
+           Company.all().map(s => s.id.toString -> s.name.toString),
+           '_label -> "chose company",
+           '_default -> "-- Choose a company --",
+           '_showConstraints -> false
+
+        )
+        
+        <input type="submit" value="Create">
+        
+    }
+    
+}

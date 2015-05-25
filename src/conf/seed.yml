@@ -1,0 +1,31 @@
+companies:
+  - !!models.Company
+    name: "COM 1"
+    company_id: "COMPANY A"
+    sessions:
+      - !!models.Session
+        name: "Dev 1"
+        users:
+          - !!models.User
+            user_name: "Mr A"
+          - !!models.User
+            user_name: "Mr B"
+      - !!models.Session
+        name: "Sale 1"
+        users:
+          - !!models.User
+            user_name: "Mr C"
+          - !!models.User
+            user_name: "Mr D"
+          - !!models.User
+            user_name: "Mr E"
+          - !!models.User
+            user_name: "Mr F"
+      - !!models.Session
+        name: "Test 1"
+  - !!models.Company
+    name: "COM 2"
+    company_id: "COMPANY B"
+    sessions:
+      - !!models.Session
+        name: "Sale 2"

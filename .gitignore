@@ -1,0 +1,17 @@
+/src/logs
+/src/project/project
+/src/project/target
+/src/target
+/src/tmp
+/src/.history
+/src/dist
+/src/.idea
+/src/*.iml
+/src/out
+/src/.idea_modules
+/src/.classpath
+/src/.project
+/src/RUNNING_PID
+/src/.settings
+/src/.target/
+/src/.gitignore

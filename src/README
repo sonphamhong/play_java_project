@@ -1,0 +1,23 @@
+## Instructions
+- For Ubuntu
+1. Install MySQL(http://dbadiaries.com/how-to-install-mysql-5-5-on-ubuntu-server-12-04-lts)
+2. Install Onpenjdk + Java Play FrameWork (https://www.playframework.com/download ver 2.2.6)
+    (http://kb.solarvps.com/ubuntu/how-to-install-the-play-web-framework-for-java-and-scala-on-ubuntu-12-04-lts/)
+3. Install IDE (ECLIPSE)
+4. Pull code from http://192.168.1.12:9900/#/admin/projects/zombie-rescue-2
+5. Drop and setup new Mysql user and database: 
+    bash conf/rakedb.sh
+6. Start zombie rescue application: 
+    play run
+7. Enjoy zombie rescue apps:
+    http://127.0.0.1:9000/ 
+8. Deploy to production (http://alvinalexander.com/scala/play-framework-deploying-application-production-server)
+    - change version at build.sbt
+    - create new code zip-file: 
+        play clean compile dist
+    - copy zip-file from folder scp target/universal/ to production server
+    - uzip file at production server
+    - start production server: 
+        bash conf/start_prod.sh
+    
+   
