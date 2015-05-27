@@ -10,4 +10,4 @@ Q4="GRANT ALL PRIVILEGES ON ${VALUE}.* TO '${VALUE}'@localhost;"
 Q5="USE ${VALUE};"
 SQL="${Q1}${Q2}${Q3}${Q4}${Q5}"
 
-$MYSQL -uroot -p -e "$SQL"
+$MYSQL -u root -p -e "$SQL"

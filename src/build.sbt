@@ -7,7 +7,8 @@ libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.27"
 libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
-  cache
+  cache,
+  "org.mindrot" % "jbcrypt" % "0.3m"
 )     
 
 play.Project.playJavaSettings

@@ -8,19 +8,25 @@ companies:
         users:
           - !!models.User
             user_name: "Mr A"
+            password : "1234abcd"
           - !!models.User
             user_name: "Mr B"
+            password : "1234abcd"
       - !!models.Session
         name: "Sale 1"
         users:
           - !!models.User
             user_name: "Mr C"
+            password : "1234abcd"
           - !!models.User
             user_name: "Mr D"
+            password : "1234abcd"
           - !!models.User
             user_name: "Mr E"
+            password : "1234abcd"
           - !!models.User
             user_name: "Mr F"
+            password : "1234abcd"
       - !!models.Session
         name: "Test 1"
   - !!models.Company

@@ -1,0 +1,19 @@
+@(userForm: Form[UserForm])
+@import helper._
+@import play.i18n._
+@main("Login"){
+	<h2>Login</h2>
+	@form(routes.Login.create_session()) {
+		@inputText(
+          userForm("login_id"),
+          '_label -> "Login ID",
+          '_showConstraints -> false
+          )
+        @inputPassword(
+        	userForm("password"),
+        	'_label -> "Password",
+        	'_showConstraints -> false
+        )
+        <input type="submit" value="LogIn">
+	}
+}

@@ -40,6 +40,7 @@ public class Application extends Controller {
       return badRequest(views.html.index.render(Company.all(), filledUserForm, companyForm, sessionForm));
     } else {
       Map<String, String[]> params = request().body().asFormUrlEncoded();
+      play.Logger.info("params "+ params);
       User.create_user(params);
       return redirect(routes.Application.lists());
     }
@@ -51,6 +52,7 @@ public class Application extends Controller {
       return badRequest(views.html.index.render(Company.all(), userForm, filledCompanyForm, sessionForm));
     } else {
       Map<String, String[]> params = request().body().asFormUrlEncoded();
+      
       Company.create(filledCompanyForm.get());
       return redirect(routes.Application.lists());
     }
